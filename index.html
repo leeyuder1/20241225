@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>學生練習系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>學生練習系統</h1>
+        
+        <!-- 開始畫面 -->
+        <div id="startScreen">
+            <h2>準備好開始測驗了嗎？</h2>
+            <button onclick="startQuiz()" class="start-btn">開始測驗</button>
+        </div>
+        
+        <!-- 測驗內容 -->
+        <div id="quizContainer" style="display: none;">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="progress-text" id="progressText">0%</div>
+            </div>
+
+            <div id="questionNumber"></div>
+            <div id="currentQuestion"></div>
+            
+            <div class="navigation-buttons">
+                <button onclick="previousQuestion()" id="prevBtn">上一題</button>
+                <button onclick="nextQuestion()" id="nextBtn">下一題</button>
+            </div>
+
+            <button onclick="submitQuiz()" id="submitBtn" style="display: none;">提交答案</button>
+        </div>
+
+        <!-- 結果畫面 -->
+        <div id="result" style="display: none;">
+            <h2>測驗結果</h2>
+            <p>你的分數：<span id="score"></span></p>
+            <p id="message"></p>
+            
+            <div class="review-buttons">
+                <button onclick="showReview()" class="review-btn">檢討答案</button>
+                <button onclick="restartQuiz()" class="restart-btn">再試一次</button>
+            </div>
+        </div>
+
+        <div id="reviewContainer" style="display: none;">
+            <h2>答題檢討</h2>
+            <div id="reviewContent"></div>
+            
+            <div class="review-navigation">
+                <button onclick="previousReview()" id="prevReviewBtn">上一題</button>
+                <button onclick="nextReview()" id="nextReviewBtn">下一題</button>
+            </div>
+            
+            <button onclick="restartQuiz()" class="restart-btn">再試一次</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
